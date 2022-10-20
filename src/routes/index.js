@@ -1,5 +1,5 @@
 import express from 'express'
-import expense from './expensesRoutes.js'
+import expenses from './expensesRoutes.js'
 
 const routes = (app)=>{
     app.route("/").get((req, res)=>{
@@ -7,7 +7,7 @@ const routes = (app)=>{
     })
     app.use(
         express.json(),
-        expense,
+        expenses,
     )
 }
 
