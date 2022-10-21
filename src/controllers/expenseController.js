@@ -12,7 +12,7 @@ class ExpenseController {
 
         expenses.findById(id , (err , expenses)=>{
             if(err){
-                res.status(400).send({messagem: err.messagem})
+                res.status(400).send({message: err.message})
             }else{
                 res.status(200).json(expenses)
             }
@@ -23,9 +23,9 @@ class ExpenseController {
 
         expense.save((err)=>{
             if(err){
-                res.status(500).send({messagem: "falha ao cadastra uma despesa"});
+                res.status(500).send({message: "falha ao cadastra a despesa"});
             }else{
-                res.status(200).send(expense.toJSON());
+                res.status(200).send({message: "sucesso ao cadastra a despesa"});
             }
         })
     }
@@ -34,9 +34,9 @@ class ExpenseController {
 
         expenses.findByIdAndUpdate(id, {$set: req.body},(err)=>{
             if(err){
-                res.status(500).send({messagem: err.messagem})
+                res.status(500).send({message: err.message})
             }else{
-                res.status(200).send({menssage: "dados das despesas atualizado com sucesso"})
+                res.status(200).send({message: "dados das despesas atualizado com sucesso"})
             }
         })
     }
@@ -45,9 +45,9 @@ class ExpenseController {
 
         expenses.findByIdAndDelete(id, (err)=>{
             if(err){
-                res.status(500).send({menssage: err.messagem})
+                res.status(500).send({message: err.message})
             }else{
-                res.status(200).send({menssagem: "A despasa foi deletada com sucesso"})
+                res.status(200).send({message: "A despasa foi deletada com sucesso"})
             }
         })
     }
